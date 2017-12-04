@@ -1,0 +1,373 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/////// fonts /////////////
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+   $Oxygen: 'Oxygen', sans-serif;
+   $large-font: 4em;
+   $medium-font: 2em;
+   $small-font: 1em;
+
+////// COLOR SCHEME ///////
+//// "Fresh Bathroom"//////
+   $dark-blue:   #0A57A5;
+   $light-blue:  #81A0CC;
+   $white:       #FFFFFF;
+   $grey:        #C8C8C8;
+   $mint-green:  #5FCB67;
+
+///////// SIZES //////////
+
+
+
+/////// Style Start ///////
+
+// phone
+#phone {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  .top-bar {
+    width: 100%; height: 80px;
+    text-align: center;
+    font-family: $Oxygen;
+    font-size: $large-font;
+    color: $white;
+    background-color: $light-blue;
+  }
+
+  .bottom-bar {
+    width: 100%; height: 80px;
+    text-align: center;
+    font-family: $Oxygen;
+    font-size: $large-font;
+    color: $white;
+    background-color: $light-blue;
+    position: absolute;
+    bottom: 0;
+
+    button {
+      background: none;
+      border: none;
+      color: $white;
+      text-align: center;
+
+      div {
+        width: 80px;
+        height: 5px;
+        background-color: $grey;
+        margin: 6px 0;
+        box-shadow: 2px black;
+      }
+    }
+
+    .menu-btn { margin-bottom: 20px; }
+    .map-btn, .list-btn {
+      height: 100px;
+      width: 100%;
+      display: none;
+      font-size: $small-font;
+      transition: font-size .3s;
+    }
+    .list-btn { margin-top: 0; }
+
+    .map-btn:focus, .list-btn:focus {
+      font-size: 0;
+     }
+
+
+    img { margin-right: 15px; filter: invert(100%); }
+
+    *:focus { outline: none; }
+  }
+
+}
+
+// screen container & screens
+#screen-container {
+  height: 100%;
+  width: 100%;
+
+
+  margin: auto;
+  position: absolute;
+
+  .screen {
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    position: absolute;
+  }
+}
+
+// load_screen
+#loader_screen {
+  background-color: $light-blue;
+  left: 0 ! important;
+  margin: 0;
+  z-index: 10000;
+}
+
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 90px auto;
+  margin-top: 600px;
+  animation: spin 2s ease-in-out infinite;
+}
+
+.bubble-1, .bubble-2 {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: $white;
+}
+
+.bubble-2 {
+  top: auto;
+  bottom: 0;
+}
+
+.bubble-1, .bubble-2 {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.bubble-2 {
+  animation-delay: -1.0s;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate( 360deg );
+  }
+}
+
+@keyframes bounce  {
+  0%, 100% {
+    transform: scale( 0.0 );
+  }
+
+  50% {
+    transform: scale( 1.0 );
+  }
+}
+
+#loader_title {
+  text-align: center;
+  font-family: $Oxygen;
+  font-size: $large-font;
+  color: $white;
+  box-shadow: 1px black;
+}
+// END OF LOAD SCREEN STYLES
+
+// map_screen
+#map_screen {
+  #map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+  }
+}
+
+// listing_screen
+#listing_screen {
+  background-color: $white;
+
+  // TODO: Style the li
+  #area-list {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-left: 0;
+
+    li {
+      list-style: none;
+      border: 1px dashed black;
+      width: 98.5%;
+      height: 200px;
+      padding-left: 10px; padding-top: 0; padding-bottom: 0;
+    }
+
+    div {
+      float: left;
+      width: 85%;
+      //margin-top: 20px;
+    }
+    div[id^='name-container']{
+      margin-top: 10px;
+      font-size: 2.5em;
+      font-family: $Oxygen;
+    }
+    div[id^='rating-container'] {
+      margin-top: 10px;
+      margin-right: 50px;
+    }
+    div[id^='handi-container']{
+      margin-top: 10px;
+    }
+    div[id^='arrow'] {
+      float: right;
+      background-image: url("/assets/arrow_icon.png");
+      height: 50px; width: 50px;
+      top: 50%;
+      margin-right: 10px;
+    }
+
+    img[id^='whole-']{
+      height: 50px;
+      width: 50px;
+    }
+    img[id^='half-']{
+      height: 50px;
+      width: 30px;
+    }
+    img[id^='handi-']{
+      height: 50px;
+      width: 50px;
+    }
+
+  }
+}
+
+// indiv_list screen
+#indiv_listing {
+  background-color: $white;
+  text-align: center;
+  padding-left: 0;
+  padding-bottom: 0;
+
+  #bathroom-name { font-size: $large-font; }
+
+  #rating {
+    display: inline-block;
+    padding: 10px;
+    margin-left: 0;
+
+    img {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  #comments {
+    list-style: none;
+    font-size: $large-font;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding-left: 0;
+    padding-bottom: 0;
+    height: 600px;
+    overflow-y: scroll;
+
+    li {
+      border: 1px dashed black;
+      margin-left: 0;
+      margin-bottom: 0;
+      padding: 40px;
+    }
+  }
+
+  #give-rating-btn {
+    height: 100px; width: 80%;
+    margin: auto; margin-top: 20px;
+    background: none;
+    border: 5px solid $mint-green;
+
+    font-size: $large-font; font-family: $Oxygen;
+    background-color: $mint-green;
+    color: white;
+    box-shadow: 1px 1px 1px black;
+  }
+
+  #give-rating-btn:active {
+    box-shadow: none;
+  }
+
+}
+
+
+//helper overlay
+#helper-overlay{
+  z-index: 1000;
+  #rating-help{
+    height: 150px;
+    width: 500px;
+    background-color: black;
+    opacity: 0.4;
+    border: 1px solid black;
+    z-index: 1000;
+    margin-top: 32%; margin-left: 20%;
+    color: $white; font-size: 3em; font-family: $Oxygen;
+    text-align: center;
+  }
+}
+
+// rate bathroom screen
+#rate_bathroom_screen {
+  background-color: $white;
+  text-align: center;
+  padding-left: 0;
+  padding-bottom: 0;
+
+  #back-btn {
+    //float: left;
+    background-color: $grey; border: 1px solid black;
+    height: 100px; width: 98%;
+    font-size: 3em; color: $white; font-family: $Oxygen;
+    margin: auto; margin-bottom: 20px; margin-top: 5px;
+  }
+
+  #back-btn:focus { color: $grey; }
+
+  #bathroom-rater-name {
+    font-size: $large-font;
+  }
+
+  #rating-container {
+    width: 100%;
+    height: 100px;
+
+    img {
+      height:100px;
+      width: 100px;
+    }
+    img[id^='removeable-'] { width: 50px ! important; }
+  }
+
+  #handicap-container { margin-top: 40px; }
+  #handicap-bool-img {
+    height: 100px; width: 100px;
+    filter: grayscale(100%);
+  }
+
+  #added-comment {
+    width: 95%; height: 300px;
+    margin: auto; margin-top: 60px; margin-left: 0; margin-right: 0;
+    border: 4px solid $dark-blue;
+    font-size: $medium-font; font-family: $Oxygen;
+  }
+
+  #rating-submit-btn {
+    margin: auto; margin-top: 20px;
+    width: 60%; height: 100px;
+    background-color: $mint-green;
+    color: $white; font-size: $large-font; font-family: $Oxygen;
+    border: none;
+    box-shadow: 1px 1px 1px black;
+  }
+
+  #rating-submit-btn:active {
+    box-shadow: none;
+  }
+}

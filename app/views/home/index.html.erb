@@ -1,0 +1,84 @@
+<div id="phone">
+  <header class="top-bar"><b>Loo Review</b></header>
+    <div id="screen-container">
+      <div class="screen" id="loader_screen">
+        <div class="loader">
+          <div class="bubble-1"></div>
+          <div class="bubble-2"></div>
+        </div>
+
+        <h1 id="loader_title">Scrubbing the Latrines...</h1>
+      </div>
+
+      <!------------------------------------------>
+      <div class="screen" id="map_screen">
+        <!-- API KEY = AIzaSyChaT-K3o-BS7xefU7oX9HRLhVltGfl7Qs -->
+
+        <!-- google map -->
+        <div id="map"></div>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChaT-K3o-BS7xefU7oX9HRLhVltGfl7Qs&callback=initMap">
+        </script>
+        <!-- end of google map -->
+
+      </div>
+
+      <!------------------------------------------>
+      <div class="screen" id="listing_screen">
+        <ul id="area-list"></ul>
+      </div>
+
+      <!------------------------------------------>
+      <div class="screen" id="indiv_listing">
+        <!--
+        Load screen from the left
+        The google map, goes from full screen to
+        < 1/2 height.
+        show rating and comments below map.
+        -->
+        <h1 id="bathroom-name"></h1>
+        <div id="rating">
+
+        </div>
+        <div id="placeHolderHandicap"></div>
+        <ul id="comments"></ul>
+      </div>
+
+      <!------------------------------------------>
+      <div class="screen" id="helper-overlay">
+
+        <div id="rating-help">Click here to increase the rating!</div>
+
+      </div>
+      <div class="screen" id="rate_bathroom_screen">
+        <button id="back-btn" onclick="goBack()">BACK</button>
+        <div id="rating-form">
+
+          <div id="rating-container" onclick="growRating()"></div>
+          <div id="handicap-container" onclick="toggleHandicap()">
+            <img id="handicap-bool-img" src="/assets/handicap.png"/>
+          </div>
+          <textarea id="added-comment" minlength="5" placeholder="Enter Your Comment Here..."></textarea>
+          <button id="rating-submit-btn" onclick="grabComment()">Rate</button>
+        </div>
+      </div>
+      <!------------------------------------------>
+
+    </div> <!-- END OF SCREEN CONTAINER -->
+  <footer class="bottom-bar">
+    <button class="menu-btn" onclick="menuClick()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+
+    <button class="map-btn" onclick="loadMapScreen()">
+      <img id="mapicon"  style="height:60px;width:60px;" src="assets/map_icon.png"/>
+              MAP
+    </button>
+    <button class="list-btn" onclick="loadAreaList()">
+      <img id="listicon"  style="height:50px;width:60px;" src="assets/list_icon.png"/>
+              LIST
+    </button>
+  </footer>
+</div> <!-- END OF PHONE -->
